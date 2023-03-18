@@ -9,7 +9,7 @@ int main(void)
 	int i;
 	int j;
 
-	for (i = 0 ; j < 10 ; j++)
+	for (i = 0 ; i < 10 ; i++)
 	{
 		for (j = 1 ; j < 10 ; j++)
 		{
@@ -17,8 +17,11 @@ int main(void)
 			{
 				putchar(i + '0');
 				putchar(j + '0');
-				putchar(',');
-				putchar(' ');
+				if (i + j != 17)
+				{
+					putchar(',');
+					putchar(' ');
+				}
 			}
 		}
 	}
