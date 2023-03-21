@@ -1,8 +1,9 @@
 #include "main.h"
 /**
- * int _abs - checks for absolute value present
+ * _abs - checks for absolute value
  *
  * @b: parameter to be checked
+ *
  * Return: always b
  */
 
