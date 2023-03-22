@@ -15,9 +15,9 @@ int main(void)
 	k = 2;
 	sum = 0;
 
-	for (i = 1, i <= 33 ++i)
+	for (i = 1 ; i <= 33 ; ++i)
 	{
-		if (i < 400000 && (j % 2) == 0)
+		if (j < 400000 && (j % 2) == 0)
 		{
 			sum = sum + j;
 		}
