@@ -1,9 +1,9 @@
 #include <stdio.h>
 
 /**
- * main - main function
+ * main - prints the first 52 fibonnacci numbers
  *
- * Return: always 0 when successfull execpt otherwise
+ * Return: nothing
  */
 
 int main(void)
