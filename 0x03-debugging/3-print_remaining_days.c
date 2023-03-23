@@ -5,7 +5,7 @@
  * print_remaining_days - takes a date and prints how many days are left
  *in a year,taking the leap year into consideration
  *
- * @month: month in number format
+ * @month: month in number
  * @day: day of the month
  * @year: year
  *
