@@ -2,12 +2,16 @@
 #include <stdio.h>
 
 /**
- * main - print a fizz Buzz program
+ * main - print a Fizz Buzz program
  *
- * REturn: always 0
+ * @void: function parameter empty
+ *
+ * Return: always 0 when succefull
  */
+
 int main(void)
 {
+
 	int x;
 
 	for (x = 1; x <= 100; x++)
@@ -19,7 +23,7 @@ int main(void)
 	else if (x % 3 == 0)
 	{
 	printf("Fizz");
-	ii}
+	}
 	else if (x % 5 == 0)
 	{
 	printf("Buzz");
