@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * rev_string: Function that reverses a string with pointer char
+ * rev_string - Function that reverses a string with pointer char
  * A good engineer thinks in reverse and asks himself
  * about the stylistic consequences of
  * the components and systems he proposes
