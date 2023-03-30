@@ -2,11 +2,9 @@
 #include <stdio.h>
 
 /**
- * print_array -  function that reverses the content of an array of integers.
- *
+ * main - check the code
  * @a: an array of integers
  * @n: the number of elements to swap
- *
  * Return: nothing.
  */
 
@@ -17,10 +15,10 @@ void print_array(int *a, int n)
 	i = 0;
 	while (i < n)
 	{
-	if (i != 0)
-	{
+		if (i != 0)
+		{
 		printf(", ");
-	}
+		}
 		printf("%d", a[i]);
 		i++;
 	}
