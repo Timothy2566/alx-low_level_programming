@@ -27,12 +27,12 @@ void rev_string(char *n)
 }
 
 /**
- * infinite_add - add 2 numbers together
+ * infinite_add - add two numbers together
  * @n1: text representation of first num to add
  * @n2:n text representation of seconf num to add
  * @r: pointer to buffer
  * @size_r: buffer size
- * Return: pointer to calling function
+ * Return: address of r or 0
  */
 
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
