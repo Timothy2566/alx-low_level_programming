@@ -2,28 +2,20 @@
 #include "main.h"
 
 /**
- * simple_print_buffer - prints buffer in hexa
- *
- * @buffer: address of the memory to printed
- * @size: the size of memory to be printed
- *
+ * _strchr - function that searches for the first ocurrence of the character c
+ * @s: the c string to be scanned
+ * @c: this the character to be scanned
+ * Return: 0 when succssfull execpt otherwise
  */
-void simple_print_buffer(char *buffer, unsigned int size)
-{
-	unsigned int t;
 
-	t = 0;
-	while (t < size)
+char *_strchr(char *s, char c)
+{
+	int t;
+
+	for (t = 0; s[t] >= '\0'; t++)
 	{
-		if (t % 10)
-		{
-			printf(" ");
-		}
-		if (!(t % 10) && t)
-		{
-			printf("\n");
-		}
-		printf("0x%02x", buffer[t]);
-		t++;
+		if (s[t] == c)
+			return (s + t);
 	}
+	return (NULL);
 }
