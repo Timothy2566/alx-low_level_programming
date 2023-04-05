@@ -8,7 +8,7 @@ void _puts_recursion(char *t);
 void _print_rev_recursion(char *t);
 int _strlen_recursion(char *t);
 int factorial(int t);
-int _pow_recursion(int x, int y);
+int _pow_recursion(int u, int v);
 int _sqrt_recursion(int n);
 int is_prime_number(int n);
 int is_palindrome(char *s);
