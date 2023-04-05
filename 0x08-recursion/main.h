@@ -11,7 +11,8 @@ int factorial(int t);
 int _pow_recursion(int u, int v);
 int _sqrt_recursion(int t);
 int _sqrt(int t, int s);
-int is_prime_number(int n);
+int is_prime_number(int t);
+int love_prime(int t, int s);
 int is_palindrome(char *s);
 int wildcmp(char *s1, char *s2);
 
