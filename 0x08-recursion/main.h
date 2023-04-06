@@ -15,6 +15,6 @@ int is_prime_number(int t);
 int love_prime(int t, int s);
 int is_palindrome(char *t);
 int comparing(char *t, int t1, int t2);
-int wildcmp(char *s1, char *s2);
+int wildcmp(char *t1, char *t2);
 
 #endif
