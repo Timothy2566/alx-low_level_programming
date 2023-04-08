@@ -8,7 +8,7 @@
  * argument count
  * @argv: the second function parameter
  * argument vector
- * Return: 0 when successful except otherwise
+ * Return: 0 and 1 when successful except otherwise
  */
 
 int main(int argc, char *argv[])
