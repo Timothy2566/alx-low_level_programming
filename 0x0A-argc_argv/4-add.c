@@ -7,7 +7,7 @@
  * argument count
  * @argv: the second function parameter
  * argument vector
- * Return: 1 when successful except otherwise
+ * Return: 0 when successful except otherwise 
  */
 
 int main(int argc, char *argv[])
@@ -37,5 +37,5 @@ int main(int argc, char *argv[])
 		printf("%d\n", sum);
 	}
 
-	exit(EXIT_SUCCESS);
+	return (0);
 }
