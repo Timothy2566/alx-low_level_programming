@@ -23,8 +23,8 @@ char *create_array(unsigned int size, char c)
 	t = 0;
 	while (t < size)
 	{
-		t++;
 		tim[t] = c;
+		t++;
 	}
 	return (tim);
 }
