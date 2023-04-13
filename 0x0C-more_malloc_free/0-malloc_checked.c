@@ -5,19 +5,19 @@
 
 /**
  * malloc_checked - function that allocates memory using malloc
- * @b: the size to be allocates
+ * @t: the size to be allocates
  *
  * Return: Returns a pointer to the allocated memory
  */
 
-void *malloc_checked(unsigned int b)
+void *malloc_checked(unsigned int t)
 {
-	void *m;
+	void *tee;
 
-	m = malloc(b);
+	tee = malloc(t);
 
-	if (m == NULL)
+	if (tee == NULL)
 		exit(98);
 
-	return (m);
+	return (tee);
 }
