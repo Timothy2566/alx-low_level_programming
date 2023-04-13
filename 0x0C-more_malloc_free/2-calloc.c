@@ -20,7 +20,11 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	if (tee == NULL)
 		return (NULL);
 
-	for (tee[t] = 0; t < m; t++);
+	while (t < m)
+	{
+		tee[t] = 0;
+		t++;
+	}
 
 	return (tee);
 }
