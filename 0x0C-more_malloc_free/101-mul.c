@@ -1,14 +1,4 @@
 #include "main.h"
-#include <stdio.h>
-#include <stdlib.h>
-
-int find_len(char *tim);
-char *create_xarray(int size_a);
-char *iterate_zeroes(char *tim);
-int get_digit(char d);
-void get_prod(char *prod, char *multi, int digits, int zeroes);
-void add_nums(char *final_prod, char *next_prod, int next_len);
-int main(int argc, char *argv[]);
 
 /**
  * find_len - function to find the lenght of the string
@@ -53,11 +43,11 @@ char *create_xarray(int size_a)
 }
 
 /**
- * iterates_zeroes - function to iterates through a string of number
+ * iterate_zeroes - function to iterates through a string of number
  * @tim: first function parameter
  * Return: the non-zero element
  */
-char *iterates_zeroes(char *tim)
+char *iterate_zeroes(char *tim)
 {
 	while (*tim && *tim == '0')
 		tim++;
