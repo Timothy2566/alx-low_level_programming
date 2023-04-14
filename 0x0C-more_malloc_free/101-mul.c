@@ -30,12 +30,8 @@ char *create_xarray(int size_a)
 	if (array_t == NULL)
 		exit(98);
 
-	index_t = 0;
-	while (index_t < (size_a - 1))
-	{
+	for (index_t = 0; index_t < (size_a - 1); index_t++)
 		array_t[index_t] = 'x';
-		index_t++;
-	}
 
 	array_t[index_t] = '\0';
 
@@ -83,7 +79,7 @@ int get_digit(char d)
  */
 void get_prod(char *prod, char *multi, int digits, int zeroes)
 {
-	int multi_len, num, tens = 0;
+	int multi_len, num1, tens = 0;
 
 	multi_len = find_len(multi) - 1;
 	multi += multi_len;
@@ -110,10 +106,10 @@ void get_prod(char *prod, char *multi, int digits, int zeroes)
 			exit(98);
 		}
 
-		num = (*multi - '0') * digits;
-		num += tens;
-		*prod = (num % 10) + '0';
-		tens = num / 10;
+		num1 = (*multi - '0') * digits;
+		num1 += tens;
+		*prod = (num1 % 10) + '0';
+		tens = num1 / 10;
 	}
 	if (tens)
 	       *prod = (tens % 10) + '0';
@@ -136,14 +132,14 @@ void add_nums(char *final_prod, char *next_prod, int next_len)
 	while (*(next_prod++ + 1))
 		next_prod++;
 
-	for (; *final_prod != 'x'; final_prod --)
+	for (; *final_prod != 'x'; final_prod--)
 	{
 		num1 = (*final_prod - '0') + (*next_prod - '0');
 		num1 += tens;
 		*final_prod = (num1 % 10) + '0';
 		tens = num1 / 10;
 
-		next_prod--;
+		final_prod--;
 		next_len--;
 	}
 
@@ -167,19 +163,15 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(98);
 	}
-
 	if (*(argv[1]) == '0')
 		argv[1] = iterate_zeroes(argv[1]);
-
 	if (*(argv[2]) == '0')
 		argv[2] = iterate_zeroes(argv[2]);
-
 	if (*(argv[1]) == '\0' || *(argv[2]) == '\0')
 	{
 		printf("0\n");
 		return (0);
 	}
-
 	size_a = find_len(argv[1]) + find_len(argv[2]);
 	final_prod = create_xarray(size_a + 1);
 	next_prod = create_xarray(size_a + 1);
@@ -190,13 +182,11 @@ int main(int argc, char *argv[])
 		get_prod(next_prod, argv[1], digits, zeroes++);
 		add_nums(final_prod, next_prod, size_a - 1);
 	}
-
 	for (index_t = 0; final_prod[index_t]; index_t++)
 	{
 		if (final_prod[index_t] != 'x')
 			_putchar(final_prod[index_t]);
 	}
-
 	_putchar('\n');
 
 	free(next_prod);
