@@ -3,10 +3,6 @@
 #include <stdlib.h>
 #include <ctype.h>
 
-void _is_zero(char *argv[]);
-char *_iterate_array(char *tim, int joe);
-int _checknum(char *argv[], int m);
-int main(int argc, char *argv[]);
 /**
  * _is_zero - function that drtermines if the is zero
  * @argv: function parameter argument vector
