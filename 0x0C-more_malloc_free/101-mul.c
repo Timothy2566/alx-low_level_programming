@@ -1,196 +1,128 @@
 #include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
 
+void _is_zero(char *argv[]);
+char *_iterate_array(char *tim, int joe);
+int _checknum(char *argv[], int m);
+int main(int argc, char *argv[]);
 /**
- * find_len - function to find the lenght of the string
- * @tim: the measured string
- * Return: the atring lenght
+ * _is_zero - function that drtermines if the is zero
+ * @argv: function parameter argument vector
+ * Return: return nothing since is void
  */
-int find_len(char *tim)
+
+void _is_zero(char *argv[])
 {
-	int len_t = 0;
+	int t, num1 = 1, num2 = 1;
 
-	while (*tim++)
-		len_t++;
+	for (t = 0; argv[1][t]; t++)
+		if (argv[1][t] != '0')
+		{
+			num1 = 0;
+			break;
+		}
 
-	return (len_t);
+	for (t = 0; argv[2][t]; t++)
+		if (argv[2][t] != '0')
+		{
+			num2 = 0;
+			break;
+		}
+
+	if (num1 == 1 || num2 == 1)
+	{
+		printf("0\n");
+		exit(0);
+	}
 }
 
 /**
- * create_xarray - function to create an array of chars and initializes
- * @size_a: size of array in bytes
- * Return: pointer to array
+ * _iterate_array - function to set memory to zero in array
+ * @tim: charater array
+ * @joe: secon function parameter
+ * Return: Return pointer of a char array upon success
  */
-char *create_xarray(int size_a)
+char *_iterate_array(char *tim, int joe)
 {
-	char *array_t;
-	int index_t;
+	int t = 0;
 
-	array_t = malloc(sizeof(char) * size_a);
-
-	if (array_t == NULL)
-		exit(98);
-
-	for (index_t = 0; index_t < (size_a - 1); index_t++)
-		array_t[index_t] = 'x';
-
-	array_t[index_t] = '\0';
-
-	return (array_t);
-}
-
-/**
- * iterate_zeroes - function to iterates through a string of number
- * @tim: first function parameter
- * Return: the non-zero element
- */
-char *iterate_zeroes(char *tim)
-{
-	while (*tim && *tim == '0')
-		tim++;
+	for (t = 0; t < joe; t++)
+		tim[t] = '0';
+	tim[joe] = '\0';
 	return (tim);
 }
 
-/**
- * get_digit - function that converts a digit character to int
- * @d: the first function parameter
- * Return: return integer value
- */
-
-int get_digit(char d)
-{
-	int digits = d - '0';
-
-	if (digits < 0 || digits > 9)
-	{
-		printf("Error\n");
-		exit(98);
-	}
-
-	return (digits);
-}
 
 /**
- * get_prod - function multiplies a string of numbers
- * @prod: the function parameter to store the buffer
- * @multi: the string of numbers
- * @digits: singular digit
- * @zeroes: numbers of leading zero
- * Return: return nothing
+ * _checknums - function determines the lenght of number
+ * @argv: function parameter agument vector
+ * @m: the number of row array
+ * Return: lenght of the number input
  */
-void get_prod(char *prod, char *multi, int digits, int zeroes)
+
+int _checknum(char *argv[], int m)
 {
-	int multi_len, num1, tens = 0;
+	int d;
 
-	multi_len = find_len(multi) - 1;
-	multi += multi_len;
-
-	while (*prod)
-	{
-		*prod = 'x';
-		prod++;
-	}
-
-	prod--;
-
-	while (zeroes--)
-	{
-		*prod = '0';
-		prod--;
-	}
-
-	for (; multi_len >= 0; multi_len--, multi--, prod--)
-	{
-		if (*multi < '0' || *multi > '9')
+	for (d = 0; argv[m][d]; d++)
+		if (!isdigit(argv[m][d]))
 		{
 			printf("Error\n");
 			exit(98);
 		}
 
-		num1 = (*multi - '0') * digits;
-		num1 += tens;
-		*prod = (num1 % 10) + '0';
-		tens = num1 / 10;
-	}
-	if (tens)
-	       *prod = (tens % 10) + '0';
+	return (d);
 }
 
 /**
- * add_nums -  function that add numbers
- * @final_prod:  the first parameter storing buffer
- * @next_prod: the buffer storing the final prod
- * @next_len: next_grind lenght
- * Return: nothing
- */
-void add_nums(char *final_prod, char *next_prod, int next_len)
-{
-	int num1, tens = 0;
-
-	while (*(final_prod + 1))
-		final_prod++;
-
-	while (*(next_prod++ + 1))
-		next_prod++;
-
-	for (; *final_prod != 'x'; final_prod--)
-	{
-		num1 = (*final_prod - '0') + (*next_prod - '0');
-		num1 += tens;
-		*final_prod = (num1 % 10) + '0';
-		tens = num1 / 10;
-
-		final_prod--;
-		next_len--;
-	}
-
-	if (tens)
-		*final_prod = (tens % 10) + '0';
-}
-
-/**
- * main - main function
- * @argc: argument count
+ * main - function main
+ * @argc: agument count
  * @argv: argument vector
- * Return: always 0
+ * Return: always 0 upon success
  */
+
 int main(int argc, char *argv[])
 {
-	char *final_prod, *next_prod;
-	int size_a, index_t, digits, zeroes = 0;
+	int d1, d2, dout, add1, add2, i, j, k, ba;
+	char *mout;
 
 	if (argc != 3)
+		printf("Error\n"), exit(98);
+	d1 = _checknum(argv, 1), d2 = _checknum(argv, 2);
+	_is_zero(argv), dout = d1 + d2, mout = malloc(dout + 1);
+	if (mout == NULL)
+		printf("Error\n"), exit(98);
+	mout = _iterate_array(mout, dout);
+	k = dout - 1, i = d1 - 1, j = d2 - 1, ba = add2 = 0;
+	for (; k >= 0; k--, i--)
 	{
-		printf("Error\n");
-		exit(98);
+		if (i < 0)
+		{
+			if (add2 > 0)
+			{
+				add1 = (mout[k] - '0') + add2;
+				if (add1 > 9)
+					mout[k - 1] = (add1 / 10) + '0';
+				mout[k] = (add1 % 10) + '0';
+			}
+			i = d1 - 1, j--, add2 = 0, ba++, k = dout - (1 + ba);
+		}
+		if (j < 0)
+		{
+			if (mout[0] != '0')
+				break;
+			dout--;
+			free(mout), mout = malloc(dout - 1), mout = _iterate_array(mout, dout);
+			k = dout - 1, i = d1 - 1, j = d2 - 1, ba = add2 = 0;
+		}
+		if (j >= 0)
+		{
+			add1 = ((argv[1][i] - '0') * (argv[2][j] - '0')) + (mout[k] - '0') + add2;
+			add2 = add1 / 10, mout[k] = (add1 % 10) + '0';
+		}
 	}
-	if (*(argv[1]) == '0')
-		argv[1] = iterate_zeroes(argv[1]);
-	if (*(argv[2]) == '0')
-		argv[2] = iterate_zeroes(argv[2]);
-	if (*(argv[1]) == '\0' || *(argv[2]) == '\0')
-	{
-		printf("0\n");
-		return (0);
-	}
-	size_a = find_len(argv[1]) + find_len(argv[2]);
-	final_prod = create_xarray(size_a + 1);
-	next_prod = create_xarray(size_a + 1);
-
-	for (index_t = find_len(argv[2]) - 1; index_t >= 0; index_t--)
-	{
-		digits = get_digit(*(argv[2] + index_t));
-		get_prod(next_prod, argv[1], digits, zeroes++);
-		add_nums(final_prod, next_prod, size_a - 1);
-	}
-	for (index_t = 0; final_prod[index_t]; index_t++)
-	{
-		if (final_prod[index_t] != 'x')
-			_putchar(final_prod[index_t]);
-	}
-	_putchar('\n');
-
-	free(next_prod);
-	free(final_prod);
-
+	printf("%s\n", mout);
 	return (0);
 }

@@ -17,6 +17,9 @@ char *iterate_zeroes(char *tim);
 int get_digit(char d);
 void get_prod(char *prod, char *multi, int digits, int zeroes);
 void add_nums(char *final_prod, char *next_prod, int next_len);
+void _is_zero(char *argv[]);
+char *_iterate_array(char *tim, int joe);
+int _checknum(char *argv[], int m);
 int main(int argc, char *argv[]);
 
 #endif
