@@ -1,45 +1,90 @@
 #include <stdlib.h>
 #include "dog.h"
+
 /**
- * new_dog - function that create a new dog
- * @name: the werey dogs name
- * @age: the werey dog name
- * @owner: the werey dog owner
- *
- * Return: the necccessry output
+ * _strlen - function that returns the lenght of a string
+ * @w: function parameter
+ * Return: the lenght of the string
  */
+
+int _strlen(char *w)
+{
+	int t;
+
+	t = 0;
+
+	while (w[t] != '\0')
+	{
+		t++;
+	}
+
+	return (t);
+}
+
+/**
+ * _strcpy - function that copies the string pointed to by the source
+ * @joy: pointer to the buffer
+ * @tim: string to be copied
+ * Return: the neccessry stuff
+ */
+
+char *_strcpy(char *joy, char *tim)
+{
+	int len, t;
+
+	len = 0;
+
+	while (tim[len] != '\0')
+	{
+		len++;
+	}
+
+	for (t = 0; t < len; t++)
+	{
+		joy[t] = tim[t];
+	}
+	joy[t] = '\0';
+	return (joy);
+}
+
+/**
+ * new_dog - function that create a new dog catelog
+ * @name: the werey dogs name
+ * @age: the odes age
+ * @owner: the werey owner of the dog
+ * Return: pointer to the new dog (success)
+ */
+
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	unsigned int num1, num2, t;
+	dog_t *dog;
+	int tim1, tim2;
 
-	if (name == NULL || owner == NULL)
-		return (NULL);
+	tim1 = _strlen(name);
+	tim2 = _strlen(owner);
+
 	dog = malloc(sizeof(dog_t));
 	if (dog == NULL)
 		return (NULL);
-	for (num1 = 0; name(num1); num1++)
-		;
-	num1++;
-	dog->name = malloc(num1 = sizeof(char));
+
+	dog->name = malloc(sizeof(char) * (tim1 + 1));
 	if (dog->name == NULL)
 	{
 		free(dog);
 		return (NULL);
 	}
-	for (t = 0; t < num1; t++)
-		dog->name(t) = name(t);
-	dog->age = age;
-	for (num2 = 0; owner[num2]; num1++)
-		;
-	num2++;
-	dog->owner = malloc(num2 * sizeof(char));
+
+	dog->owner = malloc(sizeof(char) * (tim2 + 1));
 	if (dog->owner == NULL)
 	{
-		free(dog->name);
 		free(dog);
+		free(dog->name);
 		return (NULL);
 	}
-	for (t = 0; t < num2; t++)
-		dog->owner[t] = owner[t];
+
+	_strcpy(dog->name, name);
+	_strcpy(dog->owner, owner);
+	dog->age = age;
+
 	return (dog);
 }

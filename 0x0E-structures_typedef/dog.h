@@ -20,6 +20,10 @@ void print_dog(struct dog *p);
 
 typedef struct dog dog_t;
 
-dog_t *new_dog(char *name, float age, char *owner);
 void free_dog(dog_t *p);
+
+int _strlen(char *w);
+char *_strcpy(char *joy, char *tim);
+dog_t *new_dog(char *name, float age, char *owner);
+
 #endif
