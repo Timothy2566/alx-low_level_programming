@@ -1,6 +1,6 @@
 /**
  * get_op_func - function that selects the correct function
- * @p: the operator passes as arugment
+ * @m: the operator passes as arugment
  *
  * Return: the pointer to the function
  */
