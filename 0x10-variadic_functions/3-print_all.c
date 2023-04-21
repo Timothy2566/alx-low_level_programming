@@ -1,53 +1,95 @@
 #include "variadic_functions.h"
-#include <stdio.h>
-#include <stdarg.h>
+
+void format_char(char *separator, va_list tim);
+void format_int(char *separator, va_list tim);
+void format_float(char *separator, va_list tim);
+void format_string(char *separator, va_list tim);
 
 /**
- * print_all - function that prints anything
- * @format: first function parameter that list of types
- * of arguments passed to the function
- * ...: second function parameter
+ * format_char - function that formats character
+ * @separator: function para the string separator
+ * @tim: second function para argument pointer
+ */
+
+void format_char(char *separator, va_list tim)
+{
+	printf("%s%c", separator, va_arg(tim, int));
+}
+
+/**
+ * format_int - function that formats character
+ * @separator: function para the string separator
+ * @tim: second function para argument pointer
+ */
+
+void format_int(char *separator, va_list tim)
+{
+	printf("%s%d", separator, va_arg(tim, int));
+}
+
+/**
+ * format_float - function that formats character
+ * @separator: function para the string separator
+ * @tim: second function para argument pointer
+ */
+
+void format_float(char *separator, va_list tim)
+{
+	printf("%s%f", separator, va_arg(tim, double));
+}
+
+/**
+ * format_string - function that formats character
+ * @separator: function para the string separator
+ * @tim: secon function para argument pointer
+ */
+
+void format_string(char *separator, va_list tim)
+{
+	char *tims = va_arg(tim, char *);
+
+	switch ((int)(!tims))
+		case 1:
+			tims = "(nil)";
+
+	printf("%s%s", separator, tims);
+}
+
+/**
+ * print_all - functionthat prints anything
+ * @format: function parameter that format string
  *
  */
 
 void print_all(const char * const format, ...)
 {
-	int t = 0;
-	char *tim, *sep = "";
+	int t = 0, m;
+	char *separator = "";
+	va_list tim;
 
-	va_list list;
+	token_t tokens[] = {
+		{"c", format_char},
+		{"i", format_int},
+		{"f", format_float},
+		{"s", format_string},
+		{NULL, NULL}
+	};
 
-	va_start(list, format);
-
-	if (format)
+	va_start(tim, format);
+	while (format && format[t])
 	{
-		while (format[t])
+		m = 0;
+		while (tokens[m].token)
 		{
-			switch (format[t])
+			if (format[t] == tokens[m].token[0])
 			{
-				case 'c':
-					printf("%s%c", sep, va_arg(list, int));
-					break;
-				case 't':
-					printf("%s%d", sep, va_arg(list, int));
-					break;
-				case 'f':
-					printf("%s%f", sep, va_arg(list, double));
-					break;
-				case 's':
-					tim = va_arg(list, char *);
-					if (!tim)
-						tim = "(nil)";
-					printf("%s%s", sep, tim);
-					break;
-				default:
-					t++;
-					continue;
+				tokens[m].f(separator, tim);
+				separator = ", ";
 			}
-			sep = ", ";
-			t++;
+			m++;
 		}
+		t++;
 	}
 	printf("\n");
-	va_end(list);
+	va_end(tim);
 }
