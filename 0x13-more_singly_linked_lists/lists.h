@@ -21,5 +21,7 @@ typedef struct listint_s
 
 size_t print_listint(const listint_t *m);
 size_t listint_len(const listint_t *m);
+listint_t *add_nodeint_end(listint_t **head, const int m);
+listint_t *add_nodeint(listint_t **head, const int m);
 
 #endif
