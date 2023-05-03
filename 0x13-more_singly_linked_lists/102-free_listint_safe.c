@@ -26,14 +26,12 @@ size_t free_listint_safe(listint_t **m)
 			josh = (*m)->next;
 			free(*m);
 			*m = josh;
-			size++;
 		}
 
 		else
 		{
 			free(*m);
 			*m = NULL;
-			size++;
 			break;
 		}
 	}
