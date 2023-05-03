@@ -3,6 +3,7 @@
 /**
  * free_listint_safe - a function that frees a listint_t list.
  * @m: function parameter
+ *
  * Return: the size of the list that was free’d
  */
 
@@ -25,6 +26,7 @@ size_t free_listint_safe(listint_t **m)
 			josh = (*m)->next;
 			free(*m);
 			*m = josh;
+			size++;
 		}
 
 		else
