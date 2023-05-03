@@ -11,7 +11,6 @@ size_t free_listint_safe(listint_t **m)
 {
 	size_t size = 0;
 	int gap;
-
 	listint_t *josh;
 
 	if (!m || !*m)
