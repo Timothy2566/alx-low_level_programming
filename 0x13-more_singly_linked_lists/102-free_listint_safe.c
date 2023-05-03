@@ -31,6 +31,7 @@ size_t free_listint_safe(listint_t **m)
 		{
 			free(*m);
 			*m = NULL;
+			size++;
 			break;
 		}
 	}
