@@ -38,5 +38,5 @@ size_t free_listint_safe(listint_t **m)
 
 	*m = NULL;
 
-	return (gap);
+	return (size);
 }
