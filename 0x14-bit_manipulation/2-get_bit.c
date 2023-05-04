@@ -14,7 +14,7 @@ int get_bit(unsigned long int q, unsigned int index)
 
 	int tobi;
 
-	if (index > 63)
+	if (index > 70)
 		return (-1);
 
 	tobi = (q >> index) & 1;
