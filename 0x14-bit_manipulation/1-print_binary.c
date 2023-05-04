@@ -23,7 +23,7 @@ void print_binary(unsigned long int w)
 
 			_putchar('1');
 			joy++;
-			t--;
+
 
 		}
 
