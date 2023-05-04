@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * fli_bits -  function that returns the number of bits you would need to
+ * flip_bits -  function that returns the number of bits you would need to
  * flip to get from one number to another
  *
- * m: first function parameter
- * Q: secon function parameter
+ * @m: first function parameter
+ * @Q: secon function parameter
  *
  * Return: the necessary output
  */
@@ -23,7 +23,7 @@ unsigned int flip_bits(unsigned long int m, unsigned long int Q)
 		t--;
 		if (present & 1)
 		{
-			tim ++;
+			tim++;
 
 		}
 	}
