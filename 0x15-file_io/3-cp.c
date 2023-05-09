@@ -84,6 +84,7 @@ int main(int argc, char *argv[])
 		xd = read(shey, cow, 1024);
 		vc = open(argv[2], O_WRONLY | O_APPEND);
 	}
+
 	while (xd > 0);
 
 	free(cow);
